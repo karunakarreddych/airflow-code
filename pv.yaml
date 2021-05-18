@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: airflow
+spec:
+  storageClassName: "fast"
+  capacity:
+    storage: 500G
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: airflow
+  gcePersistentDisk:
+    pdName: airflow-dags
+    fsType: ext4
